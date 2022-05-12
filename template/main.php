@@ -324,19 +324,6 @@ Your browser does not support the audio element.
                 echo '<img class="zoomE" src="../storage/Milestones & Activities/uploads/'.$row['academic_image'].'" alt="'.$row['academic_description'].'" style="width:80%; height:100%"><p>'.$row['academic_description'].'</p><br>';
 }
                 ?>
-                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Milestones --->
-                <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;">- Milestones & Activities -</h2>
-                    <div class="wow fadeIn" style="background:none">
-                <?php 
-                    $db=mysqli_connect('localhost','root','','tests');
-                $goo= $_SESSION['Users3'];
-                $user_check_query = "SELECT * FROM tbl_academic WHERE academic_year = '$goo'";
-                $result = mysqli_query($db, $user_check_query);
-
-                while ($row = mysqli_fetch_array($result)){
-                echo '<img class="zoomE" src="../storage/Milestones & Activities/uploads/'.$row['academic_image'].'" alt="'.$row['academic_description'].'" style="width:80%; height:100%"><p>'.$row['academic_description'].'</p><br>';
-}
-                ?>
 <script>
 window.onload = () => {
   //GET ALL IMAGES
@@ -484,7 +471,7 @@ window.onload = () => {
                     </div>
                 </li>
                 <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Milestones --->
-                <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;">- Front Page -</h2>
+                <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;"></h2>
                     <div class="wow fadeIn" style="background:none">
                 <?php 
                     $db=mysqli_connect('localhost','root','','tests');
@@ -493,8 +480,8 @@ window.onload = () => {
                 $result = mysqli_query($db, $user_check_query);
 
                 while ($row = mysqli_fetch_array($result)){
-                echo '<img class="wow fadeInDown imahe" src="../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:80%; height:100%"><br>';
-}
+                echo '<img class="wow fadeInDown imahe" src="../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:70%; height:90%;margin-bottom: -43%">';
+            }
                 ?>
             </ul>
                 <!--- Float Exit --->
