@@ -311,8 +311,20 @@ Your browser does not support the audio element.
         <div class="wowslider section">
            
             <ul> 
-
                 <li class="wow pulse wowactive" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Milestones --->
+                <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;">- Milestones & Activities -</h2>
+                    <div class="wow fadeIn" style="background:none">
+                <?php 
+                    $db=mysqli_connect('localhost','root','','tests');
+                $goo= $_SESSION['Users3'];
+                $user_check_query = "SELECT * FROM tbl_academic WHERE academic_year = '$goo'";
+                $result = mysqli_query($db, $user_check_query);
+
+                while ($row = mysqli_fetch_array($result)){
+                echo '<img class="zoomE" src="../storage/Milestones & Activities/uploads/'.$row['academic_image'].'" alt="'.$row['academic_description'].'" style="width:80%; height:100%"><p>'.$row['academic_description'].'</p><br>';
+}
+                ?>
+                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Milestones --->
                 <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;">- Milestones & Activities -</h2>
                     <div class="wow fadeIn" style="background:none">
                 <?php 
@@ -366,7 +378,8 @@ window.onload = () => {
            echo "<div class='container'>";
             echo "<div class='card' style='height:350px;'>";
             echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
+            echo '<img class="pic" src="../DB/'.$row['profile_image'].'"/>';
+            echo '<img  class="picbig" src="../DB/'.$row['profile_image'].'"/>';
             echo "</div>";
             echo "<div class='contentt'>";
             echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
@@ -392,7 +405,8 @@ window.onload = () => {
             echo "<div class='container'>";
             echo "<div class='card' style='height:350px;'>";
             echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
+            echo '<img class="pic" src="../DB/'.$row['profile_image'].'"/>';
+            echo '<img class="picbig" src="../DB/'.$row['profile_image'].'"/>';
             echo "</div>";
             echo "<div class='contentt' style='font-family: Oswald'>";
             echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname']."</h2>";
@@ -405,19 +419,20 @@ window.onload = () => {
    </div>
                 </li>
                 <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Administrative --->
-                <h2 class="wow fadeInUp board" style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;">- Administrative Officers -</h2>
+                    <h2 class="wow fadeInUp board" style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;">- Administrative Officers -</h2>
    <div class="wow zoomIn yb-php2" style="background:none">
   <?php 
   $db=mysqli_connect('localhost', 'root', '', 'tests');
   $goo= $_SESSION['Users3'];
-         $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_rank, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Administrative Officers' ORDER BY employee_rank,elname";
+         $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Administrative Officers' ORDER BY elname";
          $result = mysqli_query($db, $user_check_query);
 
          while ($row = mysqli_fetch_array($result)){
             echo "<div class='container'>";
             echo "<div class='card' style='height:350px;'>";
             echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
+            echo '<img class="pic" src="../DB/'.$row['profile_image'].'"/>';
+            echo '<img class="picbig" src="../DB/'.$row['profile_image'].'"/>';
             echo "</div>";
             echo "<div class='contentt'  style='font-family: Oswald;'>";
             echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname']."</h2>";
@@ -468,6 +483,19 @@ window.onload = () => {
                         </div>
                     </div>
                 </li>
+                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Milestones --->
+                <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;">- Front Page -</h2>
+                    <div class="wow fadeIn" style="background:none">
+                <?php 
+                    $db=mysqli_connect('localhost','root','','tests');
+                $goo= $_SESSION['Users3'];
+                $user_check_query = "SELECT * FROM folder2 WHERE year = '$goo'";
+                $result = mysqli_query($db, $user_check_query);
+
+                while ($row = mysqli_fetch_array($result)){
+                echo '<img class="wow fadeInDown imahe" src="../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:80%; height:100%"><br>';
+}
+                ?>
             </ul>
                 <!--- Float Exit --->
                 <a href="menu.php" class="float">
