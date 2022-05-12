@@ -130,6 +130,15 @@ form, .content {
   cursor: pointer;
 
 }
+/* ---------------------------------------------------------*/
+.pic{
+  width: 250px;
+  height: 290px;
+  margin:20px;
+  margin-top:10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 .button1 {background: linear-gradient(to right, red, red);} /* Green */
 .button2 {background: linear-gradient(to right, #9C27B0, #E040FB);} /* Blue */
@@ -140,13 +149,15 @@ echo "</style>";
 		echo "<div class='header'>
     <h2>Edit Year ".$row['year']."</h2>
   </div>";
-		echo "<form action='regFunction.php' method='POST'>";
+		echo "<form action='regFunction.php' method='POST' enctype='multipart/form-data'>";
 		echo "<div class='card'>";
         echo "<div class='container'>";
         echo "<div class='input-group' align='center'>";
     //echo "<label>Choose Yearbook Front Page</label><input type='file' name='id2'></input>";
-    echo "<label></label><input value='Hindi pa tapos jennifer' name='id' readonly></input>";
-		echo "<label>Year</label><input value='" . $row['year'] ."' name='email' readonly></input>";
+    echo '<img class= "pic" name="nooo" src="FrontImage/'.$row["frontImage"].'"/><br>';
+    echo 'Change Photo'; 
+    echo '<input type="file" placeholder="File" name="Editfile1" accept=".mp4, .png, .jpg" required><br>';
+		echo "<input value='" . $row['id'] ."' name='id' hidden></input>";
 		echo "<button type ='submit' class='button button1' name='save'>SAVE</a></button>";
 		echo "</form>";
 		echo "</body>";
@@ -156,10 +167,22 @@ echo "</style>";
 #update query update Syearbook image
 if(isset($_POST['save'])){
   $id = $_POST['id'];
-	//$file = $_POST['id2'];
-	$year = $_POST['email'];
+  $bars = htmlspecialchars(basename($_FILES["Editfile1"]["name"]));
 
-	$mysqli->query("UPDATE folder2 SET year='$year' WHERE id='$id'") or die($mysqli->error());
+  $db=mysqli_connect('localhost', 'root', '', 'tests');
+  $target_dir = "FrontImage/";
+  $target_file = $target_dir.basename($_FILES["Editfile1"]["name"]);
+  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+  if(move_uploaded_file($_FILES["Editfile1"]["tmp_name"], $target_file)){
+    $bars = htmlspecialchars(basename($_FILES["Editfile1"]["name"]));
+
+    $editQuery = "UPDATE folder2 SET frontImage = '$bars' WHERE id = '$id'";
+    mysqli_query($db, $editQuery);
+
+  }else{
+    echo 'FAILED';
+  }
 	echo "<script>alert('Edit Successfully!');window.location='path.php';</script>";
 }
 ?>

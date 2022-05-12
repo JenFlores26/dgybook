@@ -264,6 +264,7 @@ hov:hover{
   display: none;
   justify-content: center;
   align-items: center;
+  margin-top: 15px;
 }
 .option{
   margin-left: 20px;
@@ -283,11 +284,12 @@ fa-edit:before {
 }
 .pic{
   width: 250px;
-  height: 230px;
+  height: 290px;
   display:flex;
   margin:20px;
   margin-top:10px;
   margin-bottom: 0;
+  border-radius: 10px;box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 /* ---------------------------------Hover edit delete btn  -------------------*/
@@ -355,7 +357,7 @@ fa-edit:before {
     <div class="modal-footer">
         <div>
       <button class="loc" name="submit1" style="background-color:white;width:40px;height: 30px;margin-left: 10px;display: inline-block;">ADD</button>
-      <button class="loc" name="submit2" style="background-color:white;width:50px;height: 30px;margin-right: 10px;">DELETE</button>
+      <!--<button class="loc" name="submit2" style="background-color:white;width:50px;height: 30px;margin-right: 10px;">DELETE</button>-->
     </div>
 </div>
 </form>
@@ -406,6 +408,11 @@ window.onclick = function(event) {
           echo "<center style='font-weight:bold;'>".$row["year"]."</center>";
           echo '<a href="index.php?call='.$row["year"].'"><img name="nooo" class="pic" src="FrontImage/'.$row["frontImage"].'"/></a>';
           echo '<center><span class="spantag">
+                    <button class="option">
+                        <a href="regFunction.php?edit='.$row["id"].'">
+                          <i class="fas fa-edit yb"></i>
+                        </a>
+                    </button>
                     <button class="option">
                         <a href="regFunction.php?delete='.$row["id"].'">
                           <i class="fas fa-trash-alt yb"></i>
