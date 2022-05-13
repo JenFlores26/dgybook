@@ -474,7 +474,7 @@ window.onload = () => {
                         </div>
                     </div>
                 </li>
-                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Milestones --->
+                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background-color: <?php echo $fetch['color_scheme'] ?>;"> <!--- Front Page --->
                 <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background-color: <?php echo $fetch['color_scheme'] ?>;"></h2>
                     <div class="wow fadeIn" style="background:none">
                 <?php 
