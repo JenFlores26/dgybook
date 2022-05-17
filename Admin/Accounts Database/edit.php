@@ -33,12 +33,8 @@
             <input type="file" placeholder="file" name="f1" accept=".mp4,.png,.jpg,.avi" required>
           </div>
           <div class="input-box">
-            <span class="details">Employee ID</span>
-            <input class="input-field" type="text" placeholder="Employee ID" id="eids" name="eids" value="<?php echo $eid;?>" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Student ID</span>
-            <input class="input-field" type="number" placeholder="Student ID" id="sids" name="sids" value="<?php echo $sid;?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" required>
+            <span class="details">ID Number</span>
+            <input type="text" placeholder="ID Number" id="sids" name="sids" onkeypress="return /[a-z 0-9]/i.test(event.key)" value="<?php echo $sid;?>" maxlength="9" required>
           </div>
           <div class="input-box">
             <span class="details">Last Name</span>
@@ -72,15 +68,27 @@
           </script>
           <div class="input-box">
             <span class="details">Telephone Number</span>
-            <input onkeypress="return /[0-9-]/i.test(event.key)" type="tel" placeholder="Telephone No. (XXX-XXXX)" name="mobile" value="<?php echo $tel;?>" pattern="[0-9]{3}-[0-9]{4}" required>
+            <input onkeypress="return /[0-9-]/i.test(event.key)" type="tel" placeholder="Telephone No. (XXX-XXXX)" name="mobile" value="<?php echo $tel;?>" pattern="[0-9]{3}-[0-9]{4}" required><br>
+          <span class="details">Course</span>
+            <select name="course" value="<?php echo $cour;?>">
+            <option value="BSIT"><b>BSIT</b></option>
+            <option value="BSIS"><b>BSIS</b></option>
+      </select>
           </div>
           <div class="input-box">
             <span class="details">Quotes</span>
-            <input type="text" placeholder="Quotes" id="quotes" name="quotes" value="<?php echo $quo;?>" required>
+            <textarea placeholder="Quotes" id="quotes" name="quotes" value="<?php echo $quo;?>" style="resize: none;height: 120px" required></textarea>
           </div>
           <div class="input-box">
-            <span class="details">Course</span>
-            <input type="text" placeholder="Course" id="course" name="course" value="<?php echo $cour;?>"onkeypress="return /[a-z]/i.test(event.key)" maxlength="4" required>
+            <span class="details">Latin Honor</span>
+            <select name="latin" value="<?php echo $latin;?>">
+              <option value=""><b>None</b></option>
+            <option value="Cum laude"><b>Cum laude</b></option>
+            <option value="Magna cum laude"><b>Magna cum laude</b></option>
+            <option value="Summa cum laude"><b>Summa cum laude</b></option>
+            <option value="Egregia cum laude"><b>Egregia cum laude</b></option>
+            <option value="Maxima cum laude"><b>Maxima cum laude</b></option>
+      </select>
           </div>
           <div class="input-box">
             <span class="details">Yr. & Section</span>
@@ -122,13 +130,13 @@
               <script src="index.js"></script>
           </div>
           <div class="input-box">
-            <span class="details">Enabled?</span>
+            <span class="details">Status</span>
             <select name="dis" value="<?php echo $dist;?>">
-            <option value="Yes"><b>Yes</b></option>
-            <option value="No"><b>No</b></option>
+            <option value="1"><b>On</b></option>
+            <option value="0"><b>Off</b></option>
       </select>
           </div>
-        </div>
+          </div>
         <center>
         <div class="button">
           <input type="submit" name="gett" value="Register">

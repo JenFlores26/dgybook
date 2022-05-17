@@ -68,6 +68,7 @@ if(mysqli_num_rows($result) > 0)
 							<th style="width:150px;">Company Name</th>
 							<th style="width:150px;">Category</th>
 							<th style="width:150px;">Job Type</th>
+							<th style="width:150px;">Job Link</th>
 							<th style="width:150px;">Date Released</th>
 							<th style="width:150px;">Action</th>
 						</tr>
@@ -80,6 +81,7 @@ if(mysqli_num_rows($result) > 0)
 				<td align="center" data-label="Course">'.$row["comp_name"].'</td>
 				<td align="center" data-label="Category" style="word-wrap: break-word">'.$row["category"].'</td>
 				<td align="center" data-label="Job Type" style="word-wrap: break-word">'.$row["jobtype"].'</td>
+				<td align="center" data-label="Job Link" style="word-wrap: break-word"><a href="'.$row["link"].'" target="_blank">Visit here</td>
 				<td align="center" data-label="Quotes">'.$row["date_release"].'</td>
         		<td align="center">
         		<button style="background-color:red">
@@ -110,6 +112,7 @@ else
 							<th style="width:150px;">Company Name</th>
 							<th style="width:150px;">Category</th>
 							<th style="width:150px;">Job Type</th>
+							<th style="width:150px;">Job Link</th>
 							<th style="width:150px;">Date Released</th>
 							<th style="width:150px;">Action</th>
 						</tr>
@@ -117,7 +120,7 @@ else
 					';
 		$output .='
 			<tr align="center">
-				<td align="center" data-label="Result" colspan="5">Data not Found</td>
+				<td align="center" data-label="Result" colspan="6">Data not Found</td>
 			</tr>
 		';
 	

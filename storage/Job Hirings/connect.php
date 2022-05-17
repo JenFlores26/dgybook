@@ -10,6 +10,7 @@
 ?>
 
 <?php
+$link = "";
 $job = "";
 $company = "";
 $desc = "";
@@ -24,6 +25,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["gett"])) {
+$link = $_POST['jlink'];
 $job = $_POST['jtype'];
 $cat = $_POST['cat'];
 $company = $_POST['comp'];
@@ -67,7 +69,7 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     $bars = htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
-    $asd = "INSERT INTO tbl_jobs (filename, comp_name, category, jobtype, date_release) VALUES ('$bars','$company','$cat','$job','$desc')";
+    $asd = "INSERT INTO tbl_jobs (filename, comp_name, link, category, jobtype, date_release) VALUES ('$bars','$company','$link','$cat','$job','$desc')";
     $result = mysqli_query($db, $asd);
     echo "<script>alert('The job entry has been added.');window.location='index.php';</script>";
   } else {

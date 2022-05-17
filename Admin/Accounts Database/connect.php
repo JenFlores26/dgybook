@@ -35,7 +35,6 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
 if (isset($_POST["gett"])) {
 $acct = $_POST['acc']; //account type
 $sid = $_POST['sids']; //student id
-$eid = $_POST['eids']; //employee id
 $last = $_POST['Lname']; //lastname
 $first = $_POST['Fname']; //firstname
 $mid = $_POST['Mname']; //middlename
@@ -43,6 +42,7 @@ $location = $_POST['addr']; //address
 $con = $_POST['contact']; //cellphone number
 $tel = $_POST['mobile']; //telephone number
 $quo = $_POST['quotes']; //quotes
+$latin = $_POST['latin']; //latin honor
 $cour = $_POST['course']; //course
 $sec = $_POST['sec']; //Yr&section
 $em = $_POST['mail'];  //email
@@ -58,13 +58,13 @@ if ($acct=="Registrar/Employee") {
   $resulta = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($resulta);
   
-    if ($user['email'] === $email && $user['eid'] === $eid) {
+    if ($user['email'] === $email && $user['eid'] === $sid) {
       array_push($errors, "Account Exist.");
     }
-    else if ($user['email'] === $email && $user['eid'] !== $eid) {
+    else if ($user['email'] === $email && $user['eid'] !== $sid) {
       array_push($errors, "Account Email Exist.");
     }
-    else if ($user['email'] !== $email && $user['eid'] === $eid) {
+    else if ($user['email'] !== $email && $user['eid'] === $sid) {
       array_push($errors, "Account SID Exist.");
     }
     
@@ -113,7 +113,7 @@ if ($uploadOk == 0) {
     echo mysqli_error($db);
 
  
-    $ins = "INSERT INTO tbl_employees (eid, email) VALUES ('$eid', '$email')";
+    $ins = "INSERT INTO tbl_employees (eid, email) VALUES ('$sid', '$email')";
     $res = mysqli_query($db, $ins);
     if ($res){
 
@@ -218,7 +218,7 @@ else {
     $result = mysqli_query($db, $insertion);
     echo mysqli_error($db);
 
-    $ins = "INSERT INTO tbl_students (sid, email, course) VALUES ('$sid', '$email', '$cour')";
+    $ins = "INSERT INTO tbl_students (sid, email, course, honor) VALUES ('$sid', '$email', '$cour', '$latin')";
     $res = mysqli_query($db, $ins);
     if ($res){
       require("PHPMailer/src/PHPMailer.php");

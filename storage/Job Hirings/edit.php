@@ -49,6 +49,10 @@
             <span class="details">Date Released</span>
             <input class="input-field" type="date" placeholder="Date Released" value="<?php echo $desc;?>" name="desc" required>
           </div>
+          <div class="input-box">
+            <span class="details">Job Link</span>
+            <textarea value="<?php echo $link;?>" placeholder="Job Link" name="jlink" style="height: 100%;resize: none;" required></textarea>
+          </div>
         </div>
         <center>
         <div class="button">

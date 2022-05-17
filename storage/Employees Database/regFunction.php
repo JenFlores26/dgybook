@@ -71,7 +71,7 @@ echo "</style>";
             <input type='text' name='fname' value='".$row['fname']."' placeholder='given name' required>
           </div>
           <div class='input-box'>
-            <span class='details'>Surname</span>
+            <span class='details'>Middle name</span>
             <input type='text' name='mname' value='".$row['mname']."' placeholder='Middle name' required>
           </div>
           <div class='input-box'>
@@ -79,8 +79,12 @@ echo "</style>";
             <input type='text' name='tname' placeholder='Ex. MIT, PhD, etc.'>
           </div>
           <div class='input-box'>
-            <span class='details'>Work Status</span>
-            <input type='text' name='roles' placeholder='Work Status' required>
+            <span class='details'>Entry Group Type</span>
+          <select name='roles'>
+          <option value='President'>President</option>
+          <option value='Secretary'>Secretary</option>
+            </select>
+          </div>
           </div>
           <div class='input-box'>
             <span class='details'>Entry Group Type</span>

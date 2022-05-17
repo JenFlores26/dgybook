@@ -262,6 +262,7 @@ hov:hover{
   <center>
   <p><a class="un" href="admin.php" style="float: left;font-size: 15px;display: block;color: white;">Dashboard</a></p>
   <p><a class="un" href="Admin/Accounts Database/index.php" style="float: left;font-size: 15px;display: block;">Accounts Table</a></p>
+  <p><a class="un" href="../../Admin/Accounts Database/index2.php" style="float: left;font-size: 15px;display: block;">Archive Accounts Table</a></p>
   <p><a class="un" href="Admin/Sign In History Database/index.php" style="float: left;font-size: 15px;display: block;">Sign In History Table</a></p>
   <p><a class="un" href="logout2.php" style="float: left;font-size: 15px;">Sign Out</a></p>
 </center>
@@ -297,8 +298,15 @@ hov:hover{
           <center>
           <div class='imgBx' style='border:none;'>
           <img src="CvSU/blue.png" style="width:200px;"></center></td>
-      <td style="width:80%;"><b>ACCOUNTS TABLE</b><br><p align="justify" style="margin-right: 20px;">This is the place where you can input employee's and students profile and information. This is where the  account data of Alumni Graduates, Academic Affairs and Administrative Officers. It contains critical information, such as each employee's ad students personal information which holds a variety of employee and student personnel fields such as fullname, date graduated, contact number, and year for the presentation of digital yearbook.</p></td>
-    </tr> 
+      <td style="width:80%;"><b>ACCOUNTS TABLE</b><br><p align="justify" style="margin-right: 20px;">This is the place where you can input employee's and students profile and information. This is where the  account data of Alumni Graduates, Academic Affairs and Administrative Officers. It contains critical information, such as each employee's and students personal information which holds a variety of employee and student personnel fields such as fullname, date graduated, contact number, and year for the presentation of digital yearbook.</p></td>
+    </tr>
+    <tr onclick="window.location='Admin/Accounts Database/index2.php';">
+      <td  style="width:20%; padding: -10 -10px ;">
+          <center>
+          <div class='imgBx' style='border:none;'>
+          <img src="CvSU/blue.png" style="width:200px;"></center></td>
+      <td style="width:80%;"><b>ARCHIVE ACCOUNTS TABLE</b><br><p align="justify" style="margin-right: 20px;">This is the place where you can see the account recoveries from the Accounts Table whether the admin accidentally delete the account. It also contains critical information, such as each employee's and students personal information which holds a variety of employee and student personnel fields such as fullname, date graduated, contact number, and year for the presentation of digital yearbook.</p></td>
+    </tr>  
 </div>
     <tr onclick="window.location='Admin/Sign In History Database/index.php';">
       <td  style="width:20%">

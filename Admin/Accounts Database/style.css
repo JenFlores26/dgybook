@@ -139,7 +139,7 @@ form .input-box span.details{
  }
  form .button input{
    height: 100%;
-   width: 100%;
+   width: 45%;
    border-radius: 5px;
    border: none;
    color: #fff;

@@ -11,7 +11,7 @@ include ('connect.php');
 <html>
 <head>
 <meta charset="utf-8">
-<title>Accounts Table</title>
+<title>Archive Accounts Table</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -335,8 +335,8 @@ a.float:hover + div.label-container{
   ?>
   <center>
   <p><a class="un" href="../../admin.php" style="float: left;font-size: 15px;display: block;">Dashboard</a></p>
-  <p><a class="un" href="../../Admin/Accounts Database/index.php" style="float: left;font-size: 15px;display: block;color: white;">Accounts Table</a></p>
-  <p><a class="un" href="../../Admin/Accounts Database/index2.php" style="float: left;font-size: 15px;display: block;">Archive Accounts Table</a></p>
+  <p><a class="un" href="../../Admin/Accounts Database/index.php" style="float: left;font-size: 15px;display: block;">Accounts Table</a></p>
+  <p><a class="un" href="../../Admin/Accounts Database/index2.php" style="float: left;font-size: 15px;display: block;color: white;">Archive Accounts Table</a></p>
   <p><a class="un" href="../../Admin/Sign In History Database/index.php" style="float: left;font-size: 15px;display: block;">Sign In History Table</a></p>
   <p><a class="un" href="../../logout2.php" style="float: left;font-size: 15px;">Sign Out</a></p>
 </center>
@@ -349,9 +349,6 @@ a.float:hover + div.label-container{
 <div>
   <center>
   <input class="inp" type="text" placeholder="Search by last name" name="search-text" style="width:50%;background-position: 10px 10px;padding: 10px 20px 10px 35px;margin-bottom: 5px;margin-top: 5px;display: inline-block;" id="search_text_affair">
-  <button style="background-color:#0276d8;float:right;">
-        <a style="text-decoration:none;color:white;" href="edit.php"><b>+</b></a>
-  </button>
   </center>
 </div>
 </div>
@@ -407,7 +404,7 @@ $(document).ready(function(){
             function load_data(affair_query)
             {
               $.ajax({
-                url:"AcFetch.php",
+                url:"AcFetch2.php",
                 method:"post",
                 data:{affair_query:affair_query},
                 success:function(data)

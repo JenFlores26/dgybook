@@ -37,12 +37,12 @@ if(isset($_POST["affair_query"]))
 {
 	
 	$search = mysqli_real_escape_string($db_connect, $_POST["affair_query"]);
-	$query = " SELECT * FROM tbl_accounts WHERE lname LIKE '%".$search."%'";
+	$query = " SELECT * FROM tbl_raccounts WHERE fname LIKE '%".$search."%'";
 }
 else
 {
 	$query = "
-	SELECT * FROM tbl_accounts WHERE NOT atype = 'Admin'";
+	SELECT * FROM tbl_raccounts WHERE NOT atype = 'Admin'";
 }
 $result = mysqli_query($db_connect, $query);
 
@@ -63,6 +63,9 @@ if(mysqli_num_rows($result) > 0)
 							<th style="width:100px;">Account Type</th>
 							<th style="width:100px;">Date Created</th>
 							<th style="width:100px;">Status</th>
+							<th style="width:100px;">ID Number</th>
+							<th style="width:100px;">Course</th>
+							<th style="width:100px;">Honor</th>
 							<th style="width:100px;">Action</th>
 						</tr>
 					</thead>
@@ -83,20 +86,21 @@ if(mysqli_num_rows($result) > 0)
 				<td align="center" data-label="Full Name">'.$row["lname"].', '.$row["fname"].' '.$row["mname"].'</td>
 				<td align="center" data-label="Email">'.$row["email"].'</td>
 				<td align="center" data-label="Password"><p style=" white-space: nowrap;word-wrap: break-word;overflow:hidden;text-overflow: ellipsis;width:100px">'.$row["password"].'</p></td>
-				<td align="center" data-label="Quotes" style="display:none">'.$row["quotes"].'</td>
 				<td align="center" data-label="Address">'.$row["address"].'</td>
 				<td align="center" data-label="Contact No.">'.$row["mobile"].'</td>
 				<td align="center" data-label="Landline">'.$row["landline"].'</td>
 				<td align="center" data-label="Account Type">'.$row["atype"].'</td>
-				<td data-label="Date Created">'.$row["year_created"].'</td>';
-				if($row['is_disabled']=="1"){
-              $output .= "<td data-label='Status'><a href=deactivate.php?email=".$row['email']." style='color:green'><i class='fa fa-toggle-on'></i></a></td>";
-        }else{
-              $output .= "<td data-label='Status'><a href=activate.php?email=".$row['email']." style='color:gray'><i class='fa fa-toggle-off'></i></a></td>";
-}
-        $output .= '<td align="center">
+				<td data-label="Date Created">'.$row["year_created"].'</td>
+				<td data-label="Status">'.$wee.'</td>
+				<td data-label="ID Number">'.$row["ridnumber"].'</td>
+				<td data-label="Course">'.$row["rcourse"].'</td>
+				<td data-label="Latin Honor">'.$row["rhonor"].'</td>
+				<td align="center">
+								<button style="background-color:green">
+              <a style="text-decoration:none;color:white" href="regFunction.php?recover='.$row["email"].'&psw='.$row["password"].'&img='.$row["profile_image"].'&lname='.$row["lname"].'&fname='.$row["fname"].'&mname='.$row["mname"].'&addr='.$row["address"].'&mobile='.$row["mobile"].'&landline='.$row["landline"].'&quotes='.$row["quotes"].'&sec='.$row["section"].'&acc='.$row["atype"].'&year='.$row["year_created"].'&status='.$row["is_disabled"].'&id='.$row["ridnumber"].'&course='.$row["rcourse"].'&honor='.$row["rhonor"].'"><b><i class="fas fa-trash-restore" style="font-size:15px"></i></b></a>
+                </button>
                 <button style="background-color:red">
-              <a style="text-decoration:none;color:white" href="regFunction.php?email='.$row["email"].'&psw='.$row["password"].'&img='.$row["profile_image"].'&lname='.$row["lname"].'&fname='.$row["fname"].'&mname='.$row["mname"].'&addr='.$row["address"].'&mobile='.$row["mobile"].'&landline='.$row["landline"].'&quotes='.$row["quotes"].'&sec='.$row["section"].'&acc='.$row["atype"].'&year='.$row["year_created"].'&status='.$row["is_disabled"].'"><b>&#128465;</b></a>
+              <a style="text-decoration:none;color:white" href="regFunction.php?email='.$row["email"].'"><b><i class="fas fa-trash" style="font-size:15px"></i></b></a>
                 </button>
               </td>
 			</tr>

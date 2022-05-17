@@ -303,6 +303,7 @@ a.float:hover + div.label-container{
   <center>
   <p><a class="un" href="../../admin.php" style="float: left;font-size: 15px;display: block;">Dashboard</a></p>
   <p><a class="un" href="../../Admin/Accounts Database/index.php" style="float: left;font-size: 15px;display: block;">Accounts Table</a></p>
+  <p><a class="un" href="../../Admin/Accounts Database/index2.php" style="float: left;font-size: 15px;display: block;">Archive Accounts Table</a></p>
   <p><a class="un" href="../../Admin/Sign In History Database/index.php" style="float: left;font-size: 15px;display: block;color: white;">Sign In History Table</a></p>
   <p><a class="un" href="../../logout2.php" style="float: left;font-size: 15px;">Sign Out</a></p>
 </center>

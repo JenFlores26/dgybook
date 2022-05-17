@@ -91,7 +91,7 @@ if (isset($_POST['lc'])) {
               if (mysqli_num_rows($results) == 1) {
               $logged_in_user = mysqli_fetch_assoc($results);
               if ($logged_in_user['atype'] == 'Registrar/Employee') {
-                if ($logged_in_user['is_disabled'] =='No'){
+                if ($logged_in_user['is_disabled'] =='0'){
                   date_default_timezone_set('Asia/Manila');
                   $datetime = new DateTime();
                   $timezone = new DateTimeZone('Asia/Manila');
@@ -113,7 +113,7 @@ if (isset($_POST['lc'])) {
             }
           }
               if ($logged_in_user['atype'] == 'Admin'){
-                if ($logged_in_user['is_disabled'] =='No'){
+                if ($logged_in_user['is_disabled'] =='0'){
                   date_default_timezone_set('Asia/Manila');
                   $datetime = new DateTime();
                   $timezone = new DateTimeZone('Asia/Manila');
@@ -137,7 +137,7 @@ if (isset($_POST['lc'])) {
           }
 
             if ($logged_in_user['atype'] == 'Alumni') {
-              if ($logged_in_user['is_disabled'] =='No'){
+              if ($logged_in_user['is_disabled'] =='0'){
                   date_default_timezone_set('Asia/Manila');
                   $datetime = new DateTime();
                   $timezone = new DateTimeZone('Asia/Manila');
