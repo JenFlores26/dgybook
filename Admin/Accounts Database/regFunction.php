@@ -59,7 +59,7 @@ if ($acct == "Alumni") {
   $cour = $dre2['course']; //course(part 2)
   $hnr = $dre2['honor']; //course(part 2)
   $mysqli->query("UPDATE tbl_raccounts SET ridnumber = '$sid', rcourse = '$cour', rhonor = '$hnr' WHERE email = '$file'") or die($mysqli->error());
-  //step 3: delete all from both tbl_accounts and tbl_students 
+  //step 3: delete all from both tbl_accounts and tbl_students
   $mysqli->query("DELETE FROM tbl_accounts WHERE email = '$file'") or die($mysqli->error());
   $mysqli->query("DELETE FROM tbl_students WHERE email = '$file'") or die($mysqli->error());
   header("Location: index.php");
